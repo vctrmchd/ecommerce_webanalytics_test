@@ -2,9 +2,29 @@
 
 ---
 
-## 1 Eventos Implementados
+## Índice
 
-### 1.1 Evento: `view_item_list`
+1. [Eventos Implementados](#1---eventos-implementados)
+   - 1.1 [view_item_list](#11---evento-view_item_list)
+   - 1.2 [view_item](#12---evento-view_item)
+   - 1.3 [add_to_cart](#13---evento-add_to_cart)
+   - 1.4 [view_cart](#14---evento-view_cart)
+   - 1.5 [begin_checkout](#15---evento-begin_checkout)
+   - 1.6 [purchase](#16---evento-purchase)
+2. [Configuração do Google Tag Manager](#2---configuração-do-google-tag-manager)
+   - 2.1 [Tags Criadas](#21---tags-criadas)
+   - 2.2 [Acionadores Criados](#22---acionadores-criados)
+   - 2.3 [Variáveis Criadas](#23---variáveis-criadas)
+3. [Método de Extração de Dados](#3---método-de-extração-de-dados)
+4. [Testes Realizados](#4---testes-realizados)
+   - 4.1 [Modo de Visualização do GTM](#41---modo-de-visualização-do-gtm)
+   - 4.2 [Resultados dos Testes](#42---resultados-dos-testes)
+
+---
+
+## 1 - Eventos Implementados
+
+### 1.1 - Evento: `view_item_list`
 
 **Quando dispara:** No carregamento da página `index.html`
 
@@ -54,7 +74,7 @@
 
 ---
 
-### 1.2 Evento: `view_item`
+### 1.2 - Evento: `view_item`
 
 **Quando dispara:** No carregamento da página `product.html`
 
@@ -100,7 +120,7 @@
 
 ---
 
-### 1.3 Evento: `add_to_cart`
+### 1.3 - Evento: `add_to_cart`
 
 **Quando dispara:** Ao clicar no botão `#add-to-cart-btn` em `product.html`
 
@@ -153,7 +173,7 @@
 
 ---
 
-### 1.4 Evento: `view_cart`
+### 1.4 - Evento: `view_cart`
 
 **Quando dispara:** No carregamento da página `cart.html`
 
@@ -201,7 +221,7 @@
 
 ---
 
-### 1.5 Evento: `begin_checkout`
+### 1.5 - Evento: `begin_checkout`
 
 **Quando dispara:** No carregamento da página `checkout.html`
 
@@ -249,7 +269,7 @@
 
 ---
 
-### 1.6 Evento: `purchase`
+### 1.6 - Evento: `purchase`
 
 **Quando dispara:** No carregamento da página `thankyou.html`
 
@@ -309,9 +329,9 @@
 
 ---
 
-## 2 Configuração do Google Tag Manager
+## 2 - Configuração do Google Tag Manager
 
-### 2.1 Tags Criadas
+### 2.1 - Tags Criadas
 
 | Nome da Tag | Tipo | Evento GA4 | Acionador |
 |-------------|------|------------|---------|
@@ -323,7 +343,7 @@
 | GA4 - Evento - begin_checkout | Evento do GA4 | begin_checkout | custom - begin_checkout |
 | GA4 - Evento - purchase | Evento do GA4 | purchase | custom - purchase |
 
-### 2.2 Acionadors Criados
+### 2.2 - Acionadors Criados
 
 | Nome do Acionador | Tipo | Condição |
 |-----------------|------|----------|
@@ -335,7 +355,7 @@
 | custom - begin_checkout | Evento personalizado | Event equals "begin_checkout" |
 | custom - purchase | Evento personalizado | Event equals "purchase" |
 
-### 2.3 Variáveis Criadas
+### 2.3 - Variáveis Criadas
 
 | Nome da Variável | Tipo | Nome da Variável da Camada de Dados  |
 |------------------|------|--------------------------|
@@ -351,7 +371,7 @@
 
 ---
 
-## 3 Método de Extração de Dados
+## 3 - Método de Extração de Dados
 
 Os dados dos produtos são extraídos diretamente dos atributos `data-*` presentes nos elementos HTML:
 ```html
@@ -371,12 +391,12 @@ const productName = element.dataset.productName;
 
 ---
 
-## 4 Testes Realizados
+## 4 - Testes Realizados
 
-### 4.1 Modo de Visualização do GTM
+### 4.1 - Modo de Visualização do GTM
 Todos os eventos foram testados usando o modo de visualização (Preview Mode) do Google Tag Manager conectado ao servidor local.
 
-### 4.2 Resultados dos Testes
+### 4.2 - Resultados dos Testes
 
 | Evento | Status | Data Layer Populado | Tag Disparada |
 |--------|--------|---------------------|---------------|
