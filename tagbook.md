@@ -339,15 +339,15 @@
 
 | Nome da Variável | Tipo | Nome da Variável da Camada de Dados  |
 |------------------|------|--------------------------|
-| ecommerce.coupon | Variável da camada de dados | ecommerce.coupon |
-| ecommerce.currency | Variável da camada de dados | ecommerce.currency |
-| ecommerce.item_list_id | Variável da camada de dados | ecommerce.item_list_id |
-| ecommerce.item_list_name | Variável da camada de dados | ecommerce.item_list_name |
-| ecommerce.items | Variável da camada de dados | ecommerce.items |
-| ecommerce.shipping | Variável da camada de dados | ecommerce.shipping |
-| ecommerce.tax | Variável da camada de dados | ecommerce.tax |
-| ecommerce.transaction_id | Variável da camada de dados | ecommerce.transaction_id |
-| ecommerce.value | Variável da camada de dados | ecommerce.value |
+| datalayer - ecommerce.coupon | Variável da camada de dados | ecommerce.coupon |
+| datalayer - ecommerce.currency | Variável da camada de dados | ecommerce.currency |
+| datalayer - ecommerce.item_list_id | Variável da camada de dados | ecommerce.item_list_id |
+| datalayer - ecommerce.item_list_name | Variável da camada de dados | ecommerce.item_list_name |
+| datalayer - ecommerce.items | Variável da camada de dados | ecommerce.items |
+| datalayer - ecommerce.shipping | Variável da camada de dados | ecommerce.shipping |
+| datalayer - ecommerce.tax | Variável da camada de dados | ecommerce.tax |
+| datalayer - ecommerce.transaction_id | Variável da camada de dados | ecommerce.transaction_id |
+| datalayer - ecommerce.value | Variável da camada de dados | ecommerce.value |
 
 ---
 
