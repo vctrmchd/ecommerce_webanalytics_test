@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WN58TG3S');</script>
+  <!-- End Google Tag Manager -->
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkoutSection = document.getElementById('checkout-section');
+      
+      dataLayer.push({
+        event: 'begin_checkout',
+        ecommerce: {
+          currency: checkoutSection.dataset.cartCurrency,
+          value: parseFloat(checkoutSection.dataset.cartValue),
+          items: [{
+            item_id: checkoutSection.dataset.productId,
+            item_name: checkoutSection.dataset.productName,
+            item_category: checkoutSection.dataset.productCategory,
+            price: parseFloat(checkoutSection.dataset.productPrice),
+            quantity: parseInt(checkoutSection.dataset.productQuantity)
+          }]
+        }
+      });
+    });
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <title>Loja Fictícia - Checkout</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header, footer { background: #222; color: #fff; padding: 15px; }
+    header a, footer a { color: #fff; text-decoration: none; margin-right: 15px; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    form { border: 1px solid #ddd; padding: 15px; }
+    label { display: block; margin-top: 10px; }
+    input, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+    .btn { display: inline-block; padding: 8px 12px; background: #28a745; color: #fff; text-decoration: none; margin-top: 15px; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN58TG3S"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+
+  <header>
+    <div class="container">
+      <h1>Loja Fictícia</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Carrinho</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Checkout</h2>
+
+    <!-- O candidato pode usar esse formulário para implementar add_payment_info ou outros eventos -->
+    <section id="checkout-section"
+      data-cart-currency="BRL"
+      data-cart-value="79.90"
+      data-product-id="SKU123"
+      data-product-name="Camiseta Básica Branca"
+      data-product-category="Vestuário"
+      data-product-price="79.90"
+      data-product-quantity="1">
+
+      <h3>Dados do cliente</h3>
+      <form action="thankyou.html" method="get" id="checkout-form">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="endereco">Endereço</label>
+        <input type="text" id="endereco" name="endereco" required />
+
+        <label for="pagamento">Forma de pagamento</label>
+        <select id="pagamento" name="pagamento">
+          <option value="cartao_credito">Cartão de Crédito</option>
+          <option value="boleto">Boleto</option>
+          <option value="pix">Pix</option>
+        </select>
+
+        <input type="hidden" name="order_id" value="PEDIDO12345" />
+        <button type="submit" class="btn" id="place-order-btn">
+          Concluir pedido
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Loja Fictícia &copy; 2025</p>
+    </div>
+  </footer>
+</body>
+</html>

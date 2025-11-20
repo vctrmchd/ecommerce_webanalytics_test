@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WN58TG3S');</script>
+  <!-- End Google Tag Manager -->
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartSummary = document.getElementById('cart-summary');
+      const productRow = cartSummary.querySelector('tbody tr');
+      
+      dataLayer.push({
+        event: 'view_cart',
+        ecommerce: {
+          currency: cartSummary.dataset.cartCurrency,
+          value: parseFloat(cartSummary.dataset.cartValue),
+          items: [{
+            item_id: productRow.dataset.productId,
+            item_name: productRow.dataset.productName,
+            item_category: productRow.dataset.productCategory,
+            price: parseFloat(productRow.dataset.productPrice),
+            quantity: parseInt(productRow.dataset.productQuantity)
+          }]
+        }
+      });
+    });
+  </script>
+
+  <meta charset="UTF-8" />
+  <title>Loja Fictícia - Carrinho</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header, footer { background: #222; color: #fff; padding: 15px; }
+    header a, footer a { color: #fff; text-decoration: none; margin-right: 15px; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background: #f4f4f4; }
+    .btn { display: inline-block; padding: 8px 12px; background: #007bff; color: #fff; text-decoration: none; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN58TG3S"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="container">
+      <h1>Loja Fictícia</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Carrinho</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Carrinho</h2>
+
+    <!-- Carrinho fixo, com 1 produto para simplificar a simulação -->
+    <!-- O candidato pode usar esse bloco para o evento begin_checkout -->
+    <section id="cart-summary"
+      data-cart-currency="BRL"
+      data-cart-value="79.90">
+      <table>
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>SKU</th>
+            <th>Categoria</th>
+            <th>Quantidade</th>
+            <th>Preço unitário</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            data-product-id="SKU123"
+            data-product-name="Camiseta Básica Branca"
+            data-product-category="Vestuário"
+            data-product-price="79.90"
+            data-product-quantity="1">
+            <td>Camiseta Básica Branca</td>
+            <td>SKU123</td>
+            <td>Vestuário</td>
+            <td>1</td>
+            <td>R$ 79,90</td>
+            <td>R$ 79,90</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Total do carrinho:</strong> R$ 79,90</p>
+
+      <a class="btn" href="checkout.html" id="begin-checkout-btn">
+        Finalizar compra
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Loja Fictícia &copy; 2025</p>
+    </div>
+  </footer>
+</body>
+</html>

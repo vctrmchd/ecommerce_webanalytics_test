@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WN58TG3S');</script>
+  <!-- End Google Tag Manager -->
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function trackViewItemList() {
+      const productCards = document.querySelectorAll('.product-card');
+      const items = [];
+      productCards.forEach((card, index) => {
+        items.push({
+          item_id: card.dataset.productId,
+          item_name: card.dataset.productName,
+          item_category: card.dataset.productCategory,
+          price: parseFloat(card.dataset.productPrice),
+          item_list_name: "Home - Lista de Produtos",
+          item_list_id: "homepage_products",
+          index: index + 1
+        });
+      });
+
+      dataLayer.push({
+        event: 'view_item_list',
+        ecommerce: {
+          item_list_id: "homepage_products",
+          item_list_name: "Home - Lista de Produtos",
+          items: items
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', trackViewItemList);
+  </script>
+
+  <meta charset="UTF-8" />
+  <title>Loja Fictícia - Home</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header, footer { background: #222; color: #fff; padding: 15px; }
+    header a, footer a { color: #fff; text-decoration: none; margin-right: 15px; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+    .product-list { display: flex; gap: 20px; flex-wrap: wrap; }
+    .product-card { border: 1px solid #ddd; padding: 15px; width: 30%; box-sizing: border-box; }
+    .product-card h2 { font-size: 18px; margin: 10px 0 5px; }
+    .product-card p { margin: 5px 0; }
+    .product-card a.btn { display: inline-block; margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; text-decoration: none; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN58TG3S"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="container">
+      <h1>Loja Fictícia</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Carrinho</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Lista de produtos</h2>
+    <p>Simulação de e-commerce para teste de Web Analytics.</p>
+
+    <section class="product-list"
+      id="product-list"
+      data-item-list-id="homepage_products"
+      data-item-list-name="Home - Lista de Produtos">
+
+      <!-- Produto 1 -->
+      <article class="product-card"
+        data-product-id="SKU123"
+        data-product-name="Camiseta Básica Branca"
+        data-product-category="Vestuário"
+        data-product-price="79.90">
+        <h2>Camiseta Básica Branca</h2>
+        <p>Categoria: Vestuário</p>
+        <p>Preço: R$ 79,90</p>
+        <a class="btn"
+           href="product.html?id=SKU123"
+           data-item-position="1">Ver detalhes</a>
+      </article>
+
+      <!-- Produto 2 -->
+      <article class="product-card"
+        data-product-id="SKU456"
+        data-product-name="Tênis Esportivo"
+        data-product-category="Calçados"
+        data-product-price="299.90">
+        <h2>Tênis Esportivo</h2>
+        <p>Categoria: Calçados</p>
+        <p>Preço: R$ 299,90</p>
+        <a class="btn"
+           href="product.html?id=SKU456"
+           data-item-position="2">Ver detalhes</a>
+      </article>
+
+      <!-- Produto 3 -->
+      <article class="product-card"
+        data-product-id="SKU789"
+        data-product-name="Calça Jeans Slim"
+        data-product-category="Vestuário"
+        data-product-price="189.90">
+        <h2>Calça Jeans Slim</h2>
+        <p>Categoria: Vestuário</p>
+        <p>Preço: R$ 189,90</p>
+        <a class="btn"
+           href="product.html?id=SKU789"
+           data-item-position="3">Ver detalhes</a>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Loja Fictícia &copy; 2025</p>
+    </div>
+  </footer>
+</body>
+</html>

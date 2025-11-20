@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WN58TG3S');</script>
+  <!-- End Google Tag Manager -->
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    // Evento view_item
+    document.addEventListener('DOMContentLoaded', function() {
+      const productDetail = document.getElementById('product-detail');
+      dataLayer.push({
+        event: 'view_item',
+        ecommerce: {
+          currency: 'BRL',
+          value: parseFloat(productDetail.dataset.productPrice),
+          items: [{
+            item_id: productDetail.dataset.productId,
+            item_name: productDetail.dataset.productName,
+            item_category: productDetail.dataset.productCategory,
+            price: parseFloat(productDetail.dataset.productPrice)
+          }]
+        }
+      });
+    });
+  </script>
+
+  <meta charset="UTF-8" />
+  <title>Loja Fictícia - Produto</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header, footer { background: #222; color: #fff; padding: 15px; }
+    header a, footer a { color: #fff; text-decoration: none; margin-right: 15px; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    .product-detail { border: 1px solid #ddd; padding: 15px; }
+    .btn { display: inline-block; padding: 8px 12px; background: #28a745; color: #fff; text-decoration: none; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN58TG3S"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="container">
+      <h1>Loja Fictícia</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Carrinho</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Detalhe do Produto</h2>
+
+    <!-- Simulação de um único produto fixo (camiseta) -->
+    <!-- O candidato pode usar esses atributos para montar o dataLayer do view_item e add_to_cart -->
+    <section class="product-detail"
+      id="product-detail"
+      data-product-id="SKU123"
+      data-product-name="Camiseta Básica Branca"
+      data-product-category="Vestuário"
+      data-product-price="79.90">
+
+      <h3>Camiseta Básica Branca</h3>
+      <p>Categoria: Vestuário</p>
+      <p>Preço: R$ 79,90</p>
+
+      <label for="qty">Quantidade:</label>
+      <input type="number" id="qty" name="qty" min="1" value="1" />
+
+      <br /><br />
+      <a class="btn"
+         href="#"
+         id="add-to-cart-btn">
+        Adicionar ao carrinho
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Loja Fictícia &copy; 2025</p>
+    </div>
+    <script>
+      // Evento add_to_cart
+      document.getElementById('add-to-cart-btn').addEventListener('click', function(e) {
+        e.preventDefault(); 
+        const productDetail = document.getElementById('product-detail');
+        const quantity = parseInt(document.getElementById('qty').value);
+        
+        dataLayer.push({
+          event: 'add_to_cart',
+          ecommerce: {
+            currency: 'BRL',
+            value: parseFloat(productDetail.dataset.productPrice) * quantity,
+            items: [{
+              item_id: productDetail.dataset.productId,
+              item_name: productDetail.dataset.productName,
+              item_category: productDetail.dataset.productCategory,
+              price: parseFloat(productDetail.dataset.productPrice),
+              quantity: quantity
+            }]
+          }
+        });
+      // Timer para garantir processamento do GTM antes de redirecionar
+        setTimeout(function() {
+          window.location.href = 'cart.html';
+        }, 300);
+      });
+    </script>
+  </footer>
+</body>
+</html>
