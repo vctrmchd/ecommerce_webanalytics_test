@@ -108,5 +108,29 @@
       <p>Loja Fictícia &copy; 2025</p>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('pagamento').addEventListener('change', function() {
+      const checkoutSection = document.getElementById('checkout-section');
+      const paymentType = this.value;
+      
+      dataLayer.push({
+        event: 'add_payment_info',
+        ecommerce: {
+          currency: checkoutSection.dataset.cartCurrency,
+          value: parseFloat(checkoutSection.dataset.cartValue),
+          payment_type: paymentType,
+          items: [{
+            item_id: checkoutSection.dataset.productId,
+            item_name: checkoutSection.dataset.productName,
+            item_category: checkoutSection.dataset.productCategory,
+            price: parseFloat(checkoutSection.dataset.productPrice),
+            quantity: parseInt(checkoutSection.dataset.productQuantity)
+          }]
+        }
+      });
+    });
+  </script>
+  
 </body>
 </html>
