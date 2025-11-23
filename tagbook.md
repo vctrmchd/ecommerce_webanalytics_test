@@ -11,6 +11,7 @@
    - 1.4 [view_cart](#14---evento-view_cart)
    - 1.5 [begin_checkout](#15---evento-begin_checkout)
    - 1.6 [purchase](#16---evento-purchase)
+   - 1.7 [add_payment_info](#17---evento-add_payment_info)
 2. [Configuração do Google Tag Manager](#2---configuração-do-google-tag-manager)
    - 2.1 [Tags Criadas](#21---tags-criadas)
    - 2.2 [Acionadores Criados](#22---acionadores-criados)
@@ -329,6 +330,61 @@
 
 ---
 
+### 1.7 - Evento: `add_payment_info`
+
+**Quando dispara:** Quando o usuário seleciona um método de pagamento no checkout
+
+**Exemplo de payload JSON:**
+```javascript
+{
+  event: 'add_payment_info',
+  ecommerce: {
+    currency: 'BRL',
+    value: 79.90,
+    payment_type: 'cartao_credito',
+    items: [
+      {
+        item_id: 'SKU123',
+        item_name: 'Camiseta Básica Branca',
+        item_category: 'Vestuário',
+        price: 79.90,
+        quantity: 1
+      }
+    ]
+  }
+}
+```
+
+**Campos enviados:**
+| Campo | Tipo | Descrição | Exemplo |
+|-------|------|-----------|---------|
+| `event` | string | Nome do evento | "add_payment_info" |
+| `ecommerce.currency` | string | Código da moeda | "BRL" |
+| `ecommerce.value` | number | Valor total | 79.90 |
+| `ecommerce.payment_type` | string | Método de pagamento escolhido | "cartao_credito" |
+| `ecommerce.items` | array | Produtos no carrinho | [...] |
+| `ecommerce.items[].item_id` | string | SKU do produto | "SKU123" |
+| `ecommerce.items[].item_name` | string | Nome do produto | "Camiseta Básica Branca" |
+| `ecommerce.items[].item_category` | string | Categoria | "Vestuário" |
+| `ecommerce.items[].price` | number | Preço unitário | 79.90 |
+| `ecommerce.items[].quantity` | number | Quantidade | 1 |
+
+**Configuração no GTM:**
+- **Acionador:** Evento personalizado = "custom - add_payment_info"
+- **Tag:** GA4 - Evento - add_payment_info
+  - Nome do evento: `add_payment_info`
+  - Parâmetros do evento:
+    - `currency` = `{{datalayer - ecommerce.currency}}`
+    - `value` = `{{datalayer - ecommerce.value}}`
+    - `payment_type` = `{{datalayer - ecommerce.payment_type}}`
+    - `items` = `{{datalayer - ecommerce.items}}`
+
+**Observações:**
+- O evento dispara **toda vez** que o usuário muda a opção do select
+- O parâmetro `payment_type` permite análises sobre o método de pagamento
+
+---
+
 ## 2 - Configuração do Google Tag Manager
 
 ### 2.1 - Tags Criadas
@@ -406,6 +462,8 @@ Todos os eventos foram testados usando o modo de visualização (Preview Mode) d
 | view_cart | ✅ Aprovado | Sim | Sim |
 | begin_checkout | ✅ Aprovado | Sim | Sim |
 | purchase | ✅ Aprovado | Sim | Sim |
+| add_payment_info | ✅ Aprovado | Sim | Sim |
+
 
 ---
 
